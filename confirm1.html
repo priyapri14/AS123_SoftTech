@@ -35,7 +35,7 @@
 	<script type="text/javascript" src="js\jquery.min.js"></script>
 	<script type="text/javascript" src="js\bootstrap.min.js"></script>
 </head>
-<body onload="hideloader()">
+<body onload="hideloader()" onload="hideloader()">
 
 	 <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
 		<button class="navbar-toggler navbar-toggler-right " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,17 +76,24 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="images/img-01.png" alt="IMG">
 				</div>
-				<form class="login100-form validate-form" action="mail.php" method="POST">
-					<span class="login100-form-title" >
-						Warning message has not been sent yet.				
-						<img src="img/uncheck.png" alt="check" style="height: 20px">	
+
+				<form class="login100-form validate-form" action="confirm1.php" method="POST">
+					<span class="login100-form-title">
+						Enter otp
 					</span>
-					<span class="login100-form-title" >
-						Complaint has been viewed.				
-						<img src="img/check.png" alt="check" style="height: 20px">	
-					</span>
-				</form>
-				
+
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="otp" placeholder="4 digit otp">
+						<span class="focus-input100"></span>
+						
+					</div>		
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Verify
+						</button>
+					</div>
 			</div>
 		</div>
 	</div>
