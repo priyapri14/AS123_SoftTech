@@ -1,0 +1,20 @@
+CREATE DEFINER=`frsiv_26162766`@`sql102.freesite.vip` EVENT `remove` ON SCHEDULE EVERY 5 MINUTE STARTS '2020-06-12 23:14:51' ON COMPLETION PRESERVE ENABLE DO UPDATE report1 SET vkey=null, verif=0 WHERE 'timestamp' < DATE_SUB(NOW(),INTERVAL 5 MINUTE)
+
+
+
+
+
+$host = "sql102.freesite.vip";
+		$dbUsername="frsiv_26162766";
+		$dbPassword="roshanpeniel";
+		$dbname="frsiv_26162766_snoop";
+		$conn= new mysqli($host , $dbUsername,$dbPassword,$dbname);
+
+
+
+
+CREATE EVENT IF NOT EXISTS remove
+ON SCHEDULE EVERY 5 MINUTE 
+ON COMPLETION PRESERVE ENABLE 
+DO 
+UPDATE report1 SET vkey=null, verif=0 WHERE 'timestamp' < DATE_SUB(NOW(),INTERVAL 5 MINUTE);
