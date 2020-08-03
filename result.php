@@ -107,7 +107,9 @@
 							}
 
 							$sql="SELECT susid,COUNT(susid) FROM `report2` GROUP BY susid HAVING COUNT(susid)>3 ORDER BY COUNT(susid) DESC";
+							
 							$result=$conn->query($sql);
+							
 
 							if($result->num_rows>0)
 							{

@@ -43,6 +43,7 @@
 				$stmt=$conn->prepare($INSERT);
 				$stmt->bind_param("sssssssssi",$uname,$email,$state,$district,$social,$categ,$accid,$susid,$comp,$rnum);
 				$stmt->execute();
+				$comp_id=$conn->insert_id;
 				echo "Submitted sucessfully";			
 				$x=1;
 			}
@@ -117,7 +118,11 @@
 			$dbUsername="root";
 			$dbPassword="";
 			$dbname="snoop1";
+
+			$dbname1="snoop";			
+
 			$conn= new mysqli($host , $dbUsername,$dbPassword,$dbname);
+			$conn1= new mysqli($host , $dbUsername,$dbPassword,$dbname1);
 
 			if(mysqli_connect_error())
 			{
@@ -127,8 +132,11 @@
 			
 			$INSERT="INSERT INTO chat(`from`,`to`,`message`)VALUES(3,$r,'WARNING-By Indian Penal Code-Section 66E,you are now under the surveillance of Cyber Crime Department.Any act of performing further harassments on online you may have to face severe crisis.')";	
 
+			$INSERTWARN="UPDATE report2 SET warning=1 where sno=$comp_id";
+
 			if ($conn->query($INSERT)===TRUE) 
 			{
+				$conn1->query($INSERTWARN);
 				# code...
 				echo"sucessfully";
 				$last_id=$conn->insert_id;
@@ -145,7 +153,7 @@
 			{
 				# code...
 				echo"sucessfully";
-				header('Location: final.html');
+				header('Location: final.php');
 				
 				
 			}
@@ -155,6 +163,9 @@
 			}
 
 			$conn->close();
+
+			session_start();
+			$_SESSION["comp_id"]=$comp_id;
 		}
 	}
 

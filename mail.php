@@ -58,7 +58,7 @@
 				$stmt->bind_param("sss",$uname,$email,$vkey);
 				$stmt->execute();
 				echo "Submitted sucessfully";
-				header('Location: home3.html');
+				header('Location: confirm.html');
 				//mail
 				$to=$email;
 				$subject="email verification otp:";
